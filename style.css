@@ -1,0 +1,14 @@
+main {
+	display: flex;
+	align-items: flex-end;
+}
+
+#stats {
+	background-color: #5da664;
+	width: 34%;
+}
+
+#interface {
+	background-color: #3f6943;
+	width: 66%;
+}
