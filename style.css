@@ -3,6 +3,7 @@ body {
 	width: 100vw;
 	padding: 0;
 	margin: 0;
+	text-align: center;
 }
 
 main {
@@ -10,6 +11,47 @@ main {
 	width: 100%;
 	display: flex;
 	align-items: stretch;
+}
+
+.stat-area {
+	width: 60%;
+}
+
+.bar {
+	height: 15px;
+	width: 100%;
+	background-color: #FFFFFF;
+}
+
+.fill {
+	height: 100%;
+}
+
+#health-fill {
+	background-color: #FF0000;
+}
+
+#hunger-fill {
+	background-color: #00FF00;
+}
+
+#happiness-fill {
+	background-color: #FF00FF;
+}
+
+#health-button {
+	background-color: #FF0000;
+	color: #FFFFFF;
+}
+
+#hunger-button {
+	background-color: #00FF00;
+	color: #FFFFFF;
+}
+
+#happiness-button {
+	background-color: #FF00FF;
+	color: #FFFFFF;
 }
 
 #stats {
