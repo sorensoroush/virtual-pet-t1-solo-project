@@ -1,19 +1,36 @@
-let health = 100
-let hunger = 0
-let happiness = 100 
+let health = 0
+let hunger = 100
+let happiness = 0 
 
-const buttons = document.querySelectorAll('button')
-buttons.forEach(button => {
-	button.onclick(
-		() => console.log(this.name)
-	)
+const reset = () => {
+	document.querySelector('#health-fill').style.width = `${health}%`
+	document.querySelector('#hunger-fill').style.width = `${hunger}%`
+	document.querySelector('#happiness-fill').style.width = `${happiness}%`
+}
+
+reset()
+
+const healthButton = document.querySelector('#health-button')
+healthButton.addEventListener('click', () => {
+	if (health < 100) {
+		health += 5
+		document.querySelector('#health-fill').style.width = `${health}%`
+	}
 })
 
-const fills = document.querySelectorAll('.fill')
-console.log(fills)
-
-fills.forEach(fill => {
-	fill.style.width = `60%`
+const hungerButton = document.querySelector('#hunger-button')
+hungerButton.addEventListener('click', () => {
+	if (hunger > 0) {
+		hunger -= 5
+		document.querySelector('#hunger-fill').style.width = `${hunger}%`
+	}
+})
+const happinessButton = document.querySelector('#happiness-button')
+happinessButton.addEventListener('click', () => {
+	if (happiness < 100) {
+		happiness += 5
+		document.querySelector('#happiness-fill').style.width = `${happiness}%`
+	}
 })
 
 
