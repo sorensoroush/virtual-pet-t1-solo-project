@@ -11,7 +11,6 @@ const happinessFill = document.querySelector('#happiness-fill')
 const petNameArea = document.querySelector('#pet-name')
 const petAgeArea = document.querySelector('#pet-age')
 const petImage = document.querySelector('#pet-image')
-console.log(petAgeArea)
 
 const reset = () => {
 	health = 100
@@ -43,22 +42,16 @@ const statUpdate = (stat, increment) => {
 			health += increment
 			health = confineValue(health)
 			healthFill.style.width = `${health}%`
-			console.log(`Health: ${health}`)
-			console.log(`Health fill: ${healthFill.style.width}`)
 			break
 		case 'hunger':
 			hunger += increment
 			hunger = confineValue(hunger)
 			hungerFill.style.width = `${hunger}%`
-			console.log(`Hunger: ${hunger}`)
-			console.log(`Hunger fill: ${hungerFill.style.width}`)
 			break
 		case 'happiness':
 			happiness += increment
 			happiness = confineValue(happiness)
 			happinessFill.style.width = `${happiness}%`
-			console.log(`Happiness: ${happiness}`)
-			console.log(`Happiness fill: ${happinessFill.style.width}`)
 			break
 	}
 }
@@ -67,11 +60,9 @@ const statTimer = interval => {
 	timeTicker = setInterval(() => {
 		petAge++
 		petAgeArea.innerText = `${petAge} days`
-		console.log(`Pet age: ${petAge}`)
 		statUpdate('health', -10)
 		statUpdate('hunger', 10)
 		const randNum = Math.round(Math.random() * 10 + 5)
-		console.log(`Random happiness modifier: ${randNum}`)
 		statUpdate('happiness', -randNum)
 		if (health <= 0) {
 			petImage.src = 'assets/Mametchi-dead-tp.png'
