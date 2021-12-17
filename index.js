@@ -10,8 +10,8 @@ const happinessFill = document.querySelector('#happiness-fill')
 
 const petNameArea = document.querySelector('#pet-name')
 const petAgeArea = document.querySelector('#pet-age')
+const petImage = document.querySelector('#pet-image')
 console.log(petAgeArea)
-
 
 const reset = () => {
 	health = 100
@@ -19,8 +19,9 @@ const reset = () => {
 	happiness = 100 
 	petAge = 0
 	isAlive = true
+	petImage.src = 'assets/Mametchi-tp.png'
 
-	const petName = prompt('Please type the name of your tamagotchi')
+	const petName = prompt('Please type the name of your tamagotchi') || 'Mametchi'
 	document.querySelector('#pet-name').innerText = petName
 
 	healthFill.style.width = `${health}%`
@@ -69,8 +70,11 @@ const statTimer = interval => {
 		console.log(`Pet age: ${petAge}`)
 		statUpdate('health', -10)
 		statUpdate('hunger', 10)
-		statUpdate('happiness', -10)
+		const randNum = Math.round(Math.random() * 10 + 5)
+		console.log(`Random happiness modifier: ${randNum}`)
+		statUpdate('happiness', -randNum)
 		if (health <= 0) {
+			petImage.src = 'assets/Mametchi-dead-tp.png'
 			alert('Game over, your pet is dead')
 			clearInterval(timeTicker)
 			isAlive = false
