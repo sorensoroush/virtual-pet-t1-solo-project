@@ -1,6 +1,6 @@
 # Virtual Pet Web App
 ## Overview
-This is a virtual pet app made for the solo project submission of voyage 26 (V26) of Chingu. Find out more at [](chingu.io).
+This is a virtual pet app made for the solo project submission of voyage 26 (V26) of Chingu. Find out more at [chingu.io](chingu.io).
 ## Features
 ### Automatic
 - Pet day increment every 2 seconds
