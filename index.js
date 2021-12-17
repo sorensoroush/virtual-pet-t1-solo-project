@@ -3,6 +3,7 @@ let hunger = 0
 let happiness = 100 
 let isAlive = true
 let petAge = 0
+let timeTicker
 
 const healthFill = document.querySelector('#health-fill')
 const hungerFill = document.querySelector('#hunger-fill')
@@ -11,23 +12,6 @@ const happinessFill = document.querySelector('#happiness-fill')
 const petNameArea = document.querySelector('#pet-name')
 const petAgeArea = document.querySelector('#pet-age')
 const petImage = document.querySelector('#pet-image')
-
-const reset = () => {
-	health = 100
-	hunger = 0
-	happiness = 100 
-	petAge = 0
-	isAlive = true
-	petImage.src = 'assets/Mametchi-tp.png'
-
-	const petName = prompt('Please type the name of your tamagotchi') || 'Mametchi'
-	document.querySelector('#pet-name').innerText = petName
-
-	healthFill.style.width = `${health}%`
-	hungerFill.style.width = `${hunger}%`
-	happinessFill.style.width = `${happiness}%`
-}
-reset()
 
 const confineValue = value => {
 	let confinedValue = value
@@ -74,21 +58,39 @@ const statTimer = interval => {
 	)
 }
 
-statTimer(2)
+const reset = () => {
+	health = 100
+	hunger = 0
+	happiness = 100 
+	petAge = 0
+	isAlive = true
+	clearInterval(timeTicker)
+	statTimer(2)
+
+	petImage.src = 'assets/Mametchi-tp.png'
+
+	const petName = prompt('Please type the name of your tamagotchi') || 'Mametchi'
+	document.querySelector('#pet-name').innerText = petName
+
+	healthFill.style.width = `${health}%`
+	hungerFill.style.width = `${hunger}%`
+	happinessFill.style.width = `${happiness}%`
+}
+reset()
 
 const healthButton = document.querySelector('#health-button')
 healthButton.addEventListener('click', () => {
-	if (isAlive) {statUpdate('health', 5)}
+	if (isAlive) {statUpdate('health', 10)}
 })
 
 const hungerButton = document.querySelector('#hunger-button')
 hungerButton.addEventListener('click', () => {
-	if (isAlive) {statUpdate('hunger', -5)}
+	if (isAlive) {statUpdate('hunger', -10)}
 })
 
 const happinessButton = document.querySelector('#happiness-button')
 happinessButton.addEventListener('click', () => {
-	if (isAlive) {statUpdate('happiness', 5)}
+	if (isAlive) {statUpdate('happiness', 10)}
 })
 
 const resetButton = document.querySelector('#reset-button')
