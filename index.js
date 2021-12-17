@@ -17,6 +17,7 @@ const reset = () => {
 	health = 100
 	hunger = 0
 	happiness = 100 
+	petAge = 0
 	isAlive = true
 
 	const petName = prompt('Please type the name of your tamagotchi')
@@ -65,7 +66,7 @@ const statTimer = interval => {
 	timeTicker = setInterval(() => {
 		petAge++
 		petAgeArea.innerText = `${petAge} days`
-		console.log(petAge)
+		console.log(`Pet age: ${petAge}`)
 		statUpdate('health', -10)
 		statUpdate('hunger', 10)
 		statUpdate('happiness', -10)
@@ -78,7 +79,7 @@ const statTimer = interval => {
 	)
 }
 
-statTimer(1)
+statTimer(2)
 
 const healthButton = document.querySelector('#health-button')
 healthButton.addEventListener('click', () => {
@@ -95,14 +96,7 @@ happinessButton.addEventListener('click', () => {
 	if (isAlive) {statUpdate('happiness', 5)}
 })
 
-
-/*
-Functions needed:
-	Incrementer
-		modifies corresponding value, then accordingly modifies bar
-		takes "button ID" as a parameter
-
-	Time ticker
-		every X seconds applies aging modifiers
-
-*/
+const resetButton = document.querySelector('#reset-button')
+resetButton.addEventListener('click', () => {
+	reset()
+})
